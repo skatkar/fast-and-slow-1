@@ -32,6 +32,24 @@ public class Leetcode202 {
 
         return fast == 1;
     }
+    
+    // fast and slow starting from a same number
+    public boolean isHappy3(int n) {
+        int slow = n;
+        int fast = n;
+
+        while(true){
+            slow = sum(slow);
+            fast = sum(sum(fast));
+            
+            if(fast == 1){
+                return true;
+            }else if(slow == fast){
+                return false;
+            }
+        }
+    }
+    
     private int sum(int number){
         int sum = 0;
         while(number > 0){
